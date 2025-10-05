@@ -52,7 +52,7 @@ def encode_h_no(h_no):
     return main
 
 # Streamlit UI
-st.title("House Number PS/Sec Assignment")
+st.title("PS Number/Section Number Assignment")
 
 uploaded_ref = st.file_uploader("Upload Ref_House Excel/CSV file", type=['xls', 'xlsx', 'csv'])
 uploaded_main = st.file_uploader("Upload Main_Assing Excel/CSV file", type=['xls', 'xlsx', 'csv'])
