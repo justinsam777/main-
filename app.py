@@ -45,7 +45,7 @@ def encode_h_no(h_no):
                 except:
                     main += "-" + s
             s = ""
-            if ch in [' ', ',', 'r', 'R', 't', 'T']:
+            if ch in [' ', ',', 'r', 'R', 't', 'T','H NO,']:
                 break
     zero = "0" * (zero_count + 2)
     main += " " + zero
