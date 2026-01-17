@@ -7,23 +7,25 @@ from io import BytesIO
 REF_URL = "https://raw.githubusercontent.com/justinsam777/main-/main/Ref_House.xlsx"
 MAIN_URL = "https://raw.githubusercontent.com/justinsam777/main-/main/Main_assing.xlsx"
 
-def red_github_download(url, text="⬇ Sample"):
-    return f"""
-    <a href="{url}"
-       target="_blank"
-       style="
-            background:#d32f2f;
-            color:white;
-            padding:6px 12px;
-            border-radius:6px;
-            text-decoration:none;
-            font-size:13px;
-            font-weight:600;
-            display:inline-block;
-       ">
-       {text}
-    </a>
-    """
+col1, col2 = st.columns(2)
+
+with col1:
+    ref_data = requests.get(REF_URL).content
+    st.download_button(
+        label="⬇ Download Ref_House.xlsx",
+        data=ref_data,
+        file_name="Ref_House.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
+
+with col2:
+    main_data = requests.get(MAIN_URL).content
+    st.download_button(
+        label="⬇ Download Main_Assing.xlsx",
+        data=main_data,
+        file_name="Main_Assing.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
 # Function to clean house numbers by removing common prefixes
 def clean_h_no(h_no_str):
     h_no_str = re.sub(r'^\s*h\s*\.?\s*no\s*[:.]?\s*', '', str(h_no_str), flags=re.IGNORECASE)
